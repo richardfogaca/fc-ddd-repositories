@@ -10,7 +10,6 @@ export class Customer {
   constructor(id: string, name: string) {
     this._id = id;
     this._name = name;
-    
     this.validate();
   }
 
@@ -40,6 +39,10 @@ export class Customer {
     this.validate();
   }
 
+  changeAddress(address: Address) {
+    this._address = address;
+  }
+
   activate() {
     if (this._address === undefined) {
       throw new Error("Address is mandatory to activate a customer");
@@ -61,5 +64,9 @@ export class Customer {
 
   set Address(address: Address) {
     this._address = address;
+  }
+
+  get Address() {
+    return this._address;
   }
 }
