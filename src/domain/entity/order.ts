@@ -26,6 +26,11 @@ export class Order {
     return this._items;
   }
 
+  addItem(item: OrderItem) {
+    this._items.push(item);
+    this._total = this.total();
+  }
+
   validate() {
     if (this._id.length === 0) throw new Error("ID is required");
     if (this._customerId.length === 0) throw new Error("Customer ID is required");
